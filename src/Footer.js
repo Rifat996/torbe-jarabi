@@ -13,31 +13,31 @@ export default function Footer() {
         <small className="d-block mb-3 text-muted">© 2018 - 2023</small>
       </div>
       <div className="col-6 col-md">
-        <h5>Features</h5>
+        <h5>Kategorije</h5>
         <ul className="list-unstyled text-small">
           <li>
-            <a className="link-secondary" href="/">
-              Cool stuff
+            <a className="link-secondary" href="/products">
+              Kategorije
             </a>
           </li>
         </ul>
       </div>
       <div className="col-6 col-md">
-        <h5>Resources</h5>
+        <h5>Korpa</h5>
         <ul className="list-unstyled text-small">
           <li>
-            <a className="link-secondary" href="/">
-              Business
+            <a className="link-secondary" href="/cart">
+              Korpa
             </a>
           </li>
         </ul>
       </div>
       <div className="col-6 col-md">
-        <h5>About</h5>
+        <h5>O nama</h5>
         <ul className="list-unstyled text-small">
           <li>
             <a className="link-secondary" href="/">
-              Team
+              O nama
             </a>
           </li>
         </ul>

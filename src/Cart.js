@@ -9,6 +9,12 @@ export default function Cart() {
     const { cartItems } = useContext(CartContext);
     const { removeFromCart } = useContext(CartContext);
     const [showForm, setShowForm] = useState(false);
+    const [fullName, setFullName] = useState('');
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [email, setEmail] = useState('');
+
     
     const handleRemoveFromCart = (product) => {
         removeFromCart(product);
@@ -21,6 +27,35 @@ export default function Cart() {
         }
         return total;
       }, 0);
+
+
+      const generateWhatsAppMessage = () => {
+        // Create the message text with the cart information
+        let message = "Korpa:\n";
+        cartItems.forEach((product, index) => {
+          message += `${index + 1}. ${product.naziv}: ${product.cijena} KM\n`;
+        });
+        message += `\nUkupno: ${totalPrice} KM`;
+
+        // Append the form data to the message
+        message += "\n\nPodaci za dostavu:";
+        message += `\nIme i prezime: ${fullName}`;
+        message += `\nAdresa: ${address}`;
+        message += `\nGrad: ${city}`;
+        message += `\nBroj telefona: ${phoneNumber}`;
+        message += `\nEmail: ${email}`;
+      
+        // Encode the message for the URL
+        const encodedMessage = encodeURIComponent(message);
+      
+        // Generate the WhatsApp message URL
+        const url = `https://wa.me/38762451154?text=${encodedMessage}`;
+      
+        return url;
+      };
+      
+      
+      
       
 
 
@@ -76,31 +111,43 @@ export default function Cart() {
                     <Form>
                         <Form.Group controlId="fullName">
                         <Form.Label>Ime i Prezime</Form.Label>
-                        <Form.Control type="text" placeholder="Unesite vaše ime i prezime" />
+                        <Form.Control
+                            type="text"
+                            placeholder="Unesite vaše ime i prezime"
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
+                        />
                         </Form.Group>
 
                         <Form.Group controlId="address">
                         <Form.Label>Adresa stanovanja</Form.Label>
-                        <Form.Control type="text" placeholder="Unesite Vašu adresu stanovanja" />
+                        <Form.Control type="text" placeholder="Unesite Vašu adresu stanovanja" value={address}
+                        onChange={(e) => setAddress(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="city">
                         <Form.Label>Grad</Form.Label>
-                        <Form.Control type="text" placeholder="Grad u kojem živite" />
+                        <Form.Control type="text" placeholder="Grad u kojem živite" value={city}
+                        onChange={(e) => setCity(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="phoneNumber">
                         <Form.Label>Broj telefona</Form.Label>
-                        <Form.Control type="text" placeholder="Unesite Vaš broj telefona" />
+                        <Form.Control type="text" placeholder="Unesite Vaš broj telefona" value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </Form.Group>
 
                         <Form.Group controlId="email">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Unesite vaš email (nije obavezno)" />
+                        <Form.Control type="email" placeholder="Unesite vaš email (nije obavezno)" value={email}
+                        onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
 
-                        <Button style={{ margin:"10px" }} variant="primary" type="submit">
-                        Naruči
+                        <Button onClick={() => {
+                            const whatsappUrl = generateWhatsAppMessage();
+                            window.open(whatsappUrl);
+                            }} style={{ margin:"10px" }} variant="primary" type="submit">
+                            Naruči preko WhatsApp-a
                         </Button>
                     </Form>
                     </Col>
