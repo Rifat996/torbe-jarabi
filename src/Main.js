@@ -6,6 +6,7 @@ import { db } from './config/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import ModalProduct from './ModalProduct';
 import { CartContext } from './CartContext';
+import Background from './images/background.jpg';
 
 
 
@@ -50,10 +51,10 @@ export default function Main() {
   return (
     <>
       
-    <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div className="position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center bg-light">
         <Carousel>
         <Carousel.Item className='carousel-item'>
-          <img src={'https://placehold.co/600x300'}
+          <img src={Background}
             alt="Product 1"
           />
           <Carousel.Caption>
@@ -62,7 +63,7 @@ export default function Main() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className='carousel-item'>
-          <img src={'https://placehold.co/600x300'}
+          <img src={Background}
             alt="Product 1"
           />
           <Carousel.Caption>
@@ -71,7 +72,7 @@ export default function Main() {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className='carousel-item'>
-          <img src={'https://placehold.co/600x300'}
+          <img src={Background}
             alt="Product 1"
           />
           <Carousel.Caption>

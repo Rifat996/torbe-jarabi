@@ -12,9 +12,12 @@ import Bubrezi from './Bubrezi';
 import TorbeLogo from './images/torbe-logo1.png'
 import Cart from './Cart';
 import { CartProvider } from './CartContext';
+import CartBadge from './CartBadge';
 
 
 function App(props) {
+
+  
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -61,7 +64,7 @@ const Root = () => {
         Kategorije
       </Link>
       <Link to='/cart' className="py-2">
-        Korpa
+        Korpa <CartBadge />
       </Link>
     </nav>
   </header>

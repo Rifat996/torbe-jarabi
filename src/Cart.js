@@ -30,14 +30,13 @@ export default function Cart() {
 
 
       const generateWhatsAppMessage = () => {
-        // Create the message text with the cart information
+
         let message = "Korpa:\n";
         cartItems.forEach((product, index) => {
           message += `${index + 1}. ${product.naziv}: ${product.cijena} KM\n`;
         });
         message += `\nUkupno: ${totalPrice} KM`;
 
-        // Append the form data to the message
         message += "\n\nPodaci za dostavu:";
         message += `\nIme i prezime: ${fullName}`;
         message += `\nAdresa: ${address}`;
@@ -45,10 +44,8 @@ export default function Cart() {
         message += `\nBroj telefona: ${phoneNumber}`;
         message += `\nEmail: ${email}`;
       
-        // Encode the message for the URL
         const encodedMessage = encodeURIComponent(message);
       
-        // Generate the WhatsApp message URL
         const url = `https://wa.me/38762451154?text=${encodedMessage}`;
       
         return url;
