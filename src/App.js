@@ -54,16 +54,19 @@ const Root = () => {
     
       <header className="site-header sticky-top py-1">
     <nav className="container d-flex justify-content-between">
-      <Link className="py-2" to="/" aria-label="Product">
+      <Link className="py-2 text-decoration-none" to="/" aria-label="Product">
         <img style={{width: "40px", position: "absolute", top: "4px"}} src={TorbeLogo} alt='logo'></img>
       </Link>
-      <Link to='/' className="py-2 d-none d-md-inline-block">
+      <Link to='/' className="py-2 d-none d-md-inline-block text-decoration-none">
         Početna
       </Link>
-      <Link to='/products' className="py-2">
+      <Link to='/products' className="py-2 text-decoration-none">
         Kategorije
       </Link>
-      <Link to='/cart' className="py-2">
+      <Link to='/' className="py-2 text-decoration-none">
+        O nama
+      </Link>
+      <Link to='/cart' className="py-2 text-decoration-none">
         Korpa <CartBadge />
       </Link>
     </nav>

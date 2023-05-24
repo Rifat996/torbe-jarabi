@@ -6,7 +6,7 @@ import TorbeLogo from './images/torbe-logo1.png'
 export default function Footer() {
   return (
     <div>
-      <footer className="container py-5">
+      <footer className="container-fluid py-5">
     <div className="row">
       <div className="col-12 col-md">
       <img style={{maxWidth: "30px"}} src={TorbeLogo} alt='logo'></img>

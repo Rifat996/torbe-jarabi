@@ -85,8 +85,8 @@ export default function Main() {
     <Container fluid style={{ width: '99%' }}>
       <Row className="justify-content-center">
         {mainProducts.map((product, k) => (
-        <Col key={k} xs={12} md={5} lg={6} className="pt-3 text-center overflow-hidden" style={{ border: "1px solid black", borderRadius: "10px", maxWidth: "500px", margin:"10px"}}>
-          <div className="my-3 py-3">
+        <Col key={k} xs={12} md={5} lg={6} className="pt-3 bg-light text-center overflow-hidden" style={{ border: "none", maxWidth: "500px", margin:"10px"}}>
+          <div>
             <h2 className="display-5">{product.naziv}</h2>
             <p className="lead">{product.detaljno}</p>
             
@@ -98,9 +98,9 @@ export default function Main() {
           <div style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <strong>{product.cijena} KM</strong>
 
-          <Button size="sm" variant='outline-dark' onClick={() => handleProductClick(product)}>Pogledaj</Button>
+          <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' onClick={() => handleProductClick(product)}>Pogledaj</Button>
           
-          <Button onClick={() => handleAddToCart(product)} style={{ marginTop: '5px' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+          <Button onClick={() => handleAddToCart(product)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
           </div>
         </Col>
       ))}

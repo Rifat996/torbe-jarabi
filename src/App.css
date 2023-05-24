@@ -1,8 +1,9 @@
 
 .site-header {
-  background-color: rgba(0, 0, 0, 0.81);
+  background-color: #381c3ddf;
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
+  
 }
 .site-header a {
   color: #f1f1f1;

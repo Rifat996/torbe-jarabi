@@ -46,7 +46,7 @@ export default function Cart() {
       
         const encodedMessage = encodeURIComponent(message);
       
-        const url = `https://wa.me/38762451154?text=${encodedMessage}`;
+        const url = `https://wa.me/38762396500?text=${encodedMessage}`;
       
         return url;
       };
@@ -72,8 +72,8 @@ export default function Cart() {
                 
             <Container fluid>
                 <Row className="justify-content-center">{cartItems.map((product, index) => (
-                    <Col xs={6} md={4} lg={2} key={index} className="pt-3 text-center overflow-hidden">
-                        <Card border="dark">
+                    <Col style={{ border: "none" }} xs={6} md={4} lg={2} key={index} className="pt-3 text-center bg-light overflow-hidden">
+                        <Card className='bg-light' style={{ border: 'none' }}>
                             <Card.Img variant="top" src={product.fotografija} />
 
                             <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
