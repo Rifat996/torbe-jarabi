@@ -50,7 +50,7 @@ export default function Neseseri() {
       {nesessers.map((neseser, s) => (
         <Col key={s} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
-        <Card border="dark">
+        <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
           <Card.Img variant="top" src={neseser.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

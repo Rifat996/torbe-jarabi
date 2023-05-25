@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react'
 import { CartContext } from './CartContext';
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import Footer from './Footer';
-import { Button } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
+import emailjs from '@emailjs/browser';
 
 
 export default function Cart() {
@@ -14,6 +15,8 @@ export default function Cart() {
     const [city, setCity] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [email, setEmail] = useState('');
+    const [reservationStatus, setReservationStatus] = useState(null);
+
 
     
     const handleRemoveFromCart = (product) => {
@@ -51,6 +54,42 @@ export default function Cart() {
         return url;
       };
       
+      
+      const sendOrderEmail = (e) => {
+        e.preventDefault();
+      
+        // Define your Email.js service details
+        const serviceID = 'RifatGmail';
+        const templateID = 'template_prum6ii';
+        const userID = 'N1ZkcfLFcUW4zPbT1';
+      
+        // Set the parameters for the email template
+        const formattedCartItems = cartItems.map((product, index) => {
+            return `${index + 1}. ${product.naziv}: ${product.cijena} KM`;
+          });
+          
+          const templateParams = {
+            fullName: fullName,
+            address: address,
+            city: city,
+            phoneNumber: phoneNumber,
+            email: email,
+            totalPrice: totalPrice,
+            cartItems: formattedCartItems.join("\n"),
+          };
+          
+      
+        // Send the email using Email.js
+        emailjs.send(serviceID, templateID, templateParams, userID)
+          .then((response) => {
+            console.log('Email sent successfully!', response.status, response.text);
+            setReservationStatus('success');
+          })
+          .catch((error) => {
+            console.error('Error sending email:', error);
+            setReservationStatus('error');
+          });
+      };
       
       
       
@@ -104,7 +143,7 @@ export default function Cart() {
 
                     {showForm && (
                 <Row className="justify-content-center">
-                    <Col xs={11} md={8} lg={6} className="pt-3 text-center overflow-hidden" style={{ border: "1px solid black", borderRadius: "10px", margin:"10px"}}>
+                    <Col xs={11} md={8} lg={6} className="pt-3 text-center bg-light overflow-hidden" style={{ border: "none", margin:"10px"}}>
                     <Form>
                         <Form.Group controlId="fullName">
                         <Form.Label>Ime i Prezime</Form.Label>
@@ -140,20 +179,37 @@ export default function Cart() {
                         onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
 
+                        <Button onClick={sendOrderEmail} style={{ margin:"10px" }} variant="primary" type="submit">
+                            Naruči
+                        </Button>
+                        ili
                         <Button onClick={() => {
                             const whatsappUrl = generateWhatsAppMessage();
                             window.open(whatsappUrl);
                             }} style={{ margin:"10px" }} variant="primary" type="submit">
                             Naruči preko WhatsApp-a
                         </Button>
+                        
                     </Form>
                     </Col>
                 </Row>
                 )}
             </Container>
-            
 
         )}
+
+        {reservationStatus === 'success' && (
+        <Alert variant="success">
+            You successfully made your reservation. You can expect the delivery of your desired product in 48 hours if you are currently based in Bosnia and Herzegovina.
+        </Alert>
+        )}
+
+        {reservationStatus === 'error' && (
+        <Alert variant="danger">
+            There was an error making your reservation. Please try again later.
+        </Alert>
+        )}
+
             
             <Footer />
         </>
