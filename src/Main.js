@@ -6,7 +6,6 @@ import { db } from './config/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import ModalProduct from './ModalProduct';
 import { CartContext } from './CartContext';
-import Background from './images/background.jpg';
 
 
 
@@ -14,6 +13,8 @@ import Background from './images/background.jpg';
 export default function Main() {
   const [mainProducts, setMainProducts] = useState([]);
   const productsCollectionRef = collection(db, "glavniprodukti");
+  const [heroProducts, setHeroProducts] = useState([]);
+  const productsCollectionRefHero = collection(db, "herosekcija");
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { addToCart } = useContext(CartContext);
@@ -36,6 +37,23 @@ export default function Main() {
 
     getMainProducts();
   }, [])
+
+
+  useEffect(() => {
+    const getHeroProducts = async () => {
+      // read the data
+      try {
+      const data = await getDocs(productsCollectionRefHero);
+      const filteredData1 = data.docs.map((doc) => ({...doc.data()}));
+      setHeroProducts(filteredData1);
+      console.log(filteredData1)
+      } catch (err) {
+      console.log(err);
+      }
+    };
+
+    getHeroProducts();
+  }, [])
   
     const handleProductClick = (product) => {
       setSelectedProduct(product);
@@ -51,56 +69,37 @@ export default function Main() {
   return (
     <>
       
-    <div className="position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center bg-light">
+    <div className="position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center">
         <Carousel>
-        <Carousel.Item className='carousel-item'>
-          <img src={Background}
+        {heroProducts.map((hero, p) => (
+        <Carousel.Item key={p} className='carousel-item'>
+          <img className="carousel-image sketchy" src={window.innerWidth > 768 ? hero.fotkecijele : hero.fotkemobilni}
             alt="Product 1"
           />
-          <Carousel.Caption>
-            <h3>Neki privlacan naslov</h3>
-            <p>jos neki zanimljiv detalj</p>
-          </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className='carousel-item'>
-          <img src={Background}
-            alt="Product 1"
-          />
-          <Carousel.Caption>
-          <h3>Neki privlacan naslov</h3>
-            <p>jos neki zanimljiv detalj</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item className='carousel-item'>
-          <img src={Background}
-            alt="Product 1"
-          />
-          <Carousel.Caption>
-          <h3>Neki privlacan naslov</h3>
-            <p>jos neki zanimljiv detalj</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        ))}
       </Carousel>
+      <Button href='/products' className='glow-on-hover btn1'>Izaberi svoju Torbejarabi!</Button>
     </div>
     <Container fluid style={{ width: '99%' }}>
       <Row className="justify-content-center">
         {mainProducts.map((product, k) => (
-        <Col key={k} xs={12} md={5} lg={6} className="pt-3 bg-light text-center overflow-hidden" style={{ border: "none", maxWidth: "500px", margin:"10px"}}>
+        <Col key={k} xs={12} md={5} lg={6} className="pt-3 bg-light text-center overflow-hidden col-container" style={{ maxWidth: "500px", margin:"10px"}}>
           <div>
             <h2 className="display-5">{product.naziv}</h2>
             <p className="lead">{product.detaljno}</p>
             
           </div>
           <div
-            className=" mx-auto"
-            style={{backgroundImage: `url(${product.fotografija})`, backgroundRepeat: "no-repeat", backgroundSize: "contain", backgroundPosition: "center", width: "80%", height: 300, borderRadius: "21px 21px 0 0" }} onClick={() => handleProductClick(product)}
+            className=" mx-auto image-container"
+            style={{backgroundImage: `url(${product.fotografija})`, backgroundRepeat: "no-repeat", backgroundSize: "contain", backgroundPosition: "center", width: "80%", height: 300 }} onClick={() => handleProductClick(product)}
           />
           <div style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <strong>{product.cijena} KM</strong>
 
           <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' onClick={() => handleProductClick(product)}>Pogledaj</Button>
           
-          <Button onClick={() => handleAddToCart(product)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+          <Button onClick={() => handleAddToCart(product)} style={{ margin: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
           </div>
         </Col>
       ))}

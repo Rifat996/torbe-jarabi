@@ -49,7 +49,7 @@ export default function Bubrezi() {
       {sideBags.map((bubreg, m) => (
         <Col key={m} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
-        <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
+        <Card onClick={() => handleProductClick(bubreg)} className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
           <Card.Img variant="top" src={bubreg.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

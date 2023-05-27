@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="row">
       <div className="col-12 col-md">
       <img style={{maxWidth: "30px"}} src={TorbeLogo} alt='logo'></img>
-        <small className="d-block mb-3 text-muted">© 2018 - 2023</small>
+        <small className="d-block mb-3 text-muted">© 2019 - 2023</small>
       </div>
       <div className="col-6 col-md">
         <h5>Kategorije</h5>
@@ -36,7 +36,7 @@ export default function Footer() {
         <h5>O nama</h5>
         <ul className="list-unstyled text-small">
           <li>
-            <a className="link-secondary" href="/">
+            <a className="link-secondary" href="/about">
               O nama
             </a>
           </li>

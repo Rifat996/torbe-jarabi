@@ -50,7 +50,7 @@ export default function Neseseri() {
       {nesessers.map((neseser, s) => (
         <Col key={s} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
-        <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
+        <Card onClick={() => handleProductClick(neseser)} className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
           <Card.Img variant="top" src={neseser.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -63,9 +63,9 @@ export default function Neseseri() {
               
             </Card.Text>
 
-            <Button onClick={() => handleProductClick(neseser)} size="sm" variant='outline-dark'>Pogledaj</Button>
+            <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(neseser)} size="sm" variant='outline-dark'>Pogledaj</Button>
           
-            <Button onClick={() => handleAddToCart(neseser)} style={{ marginTop: '5px' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(neseser)}>{addedToCart.includes(neseser) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            <Button onClick={() => handleAddToCart(neseser)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(neseser)}>{addedToCart.includes(neseser) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
         </Card.Body>
           
         </Card>

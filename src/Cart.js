@@ -49,7 +49,7 @@ export default function Cart() {
       
         const encodedMessage = encodeURIComponent(message);
       
-        const url = `https://wa.me/38762396500?text=${encodedMessage}`;
+        const url = `https://wa.me/38762069303?text=${encodedMessage}`;
       
         return url;
       };
@@ -111,7 +111,7 @@ export default function Cart() {
                 
             <Container fluid>
                 <Row className="justify-content-center">{cartItems.map((product, index) => (
-                    <Col style={{ border: "none" }} xs={6} md={4} lg={2} key={index} className="pt-3 text-center bg-light overflow-hidden">
+                    <Col xs={6} md={4} lg={2} key={index} className="mt-3 pt-3 text-center bg-light overflow-hidden col-container">
                         <Card className='bg-light' style={{ border: 'none' }}>
                             <Card.Img variant="top" src={product.fotografija} />
 
@@ -122,7 +122,7 @@ export default function Cart() {
                                     <strong>{product.cijena} KM</strong>
                                 
                                 </Card.Text>
-                                <Button onClick={() => handleRemoveFromCart(product)} style={{ margin: '5px' }} size="sm" variant='outline-dark'>Izbaci iz Korpe</Button>
+                                <Button onClick={() => handleRemoveFromCart(product)} style={{ margin: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark'>Izbaci iz Korpe</Button>
                                 </Card.Body>
           
                         </Card>
@@ -137,14 +137,14 @@ export default function Cart() {
                 </Row>
                 <Row className="justify-content-center">
                     <Col className="pt-3 text-center overflow-hidden">
-                        <Button onClick={() => setShowForm(true)}>Nastavi prema narudzbi</Button>
+                        <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => setShowForm(true)}>Nastavi prema narudžbi</Button>
                     </Col>
                 </Row>
 
                     {showForm && (
                 <Row className="justify-content-center">
-                    <Col xs={11} md={8} lg={6} className="pt-3 text-center bg-light overflow-hidden" style={{ border: "none", margin:"10px"}}>
-                    <Form>
+                    <Col xs={11} md={8} lg={6} className="pt-3 text-center bg-light overflow-hidden col-container" style={{ margin:"10px"}}>
+                    <Form style={{ padding: '20px' }}>
                         <Form.Group controlId="fullName">
                         <Form.Label>Ime i Prezime</Form.Label>
                         <Form.Control
@@ -179,14 +179,14 @@ export default function Cart() {
                         onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
 
-                        <Button onClick={sendOrderEmail} style={{ margin:"10px" }} variant="primary" type="submit">
+                        <Button onClick={sendOrderEmail} style={{ margin:"10px", borderRadius: '0', borderColor: '#d9d9d9' }} variant="primary" type="submit">
                             Naruči
                         </Button>
                         ili
                         <Button onClick={() => {
                             const whatsappUrl = generateWhatsAppMessage();
                             window.open(whatsappUrl);
-                            }} style={{ margin:"10px" }} variant="primary" type="submit">
+                            }} style={{ margin:"10px", borderRadius: '0', borderColor: '#d9d9d9' }} variant="primary" type="submit">
                             Naruči preko WhatsApp-a
                         </Button>
                         

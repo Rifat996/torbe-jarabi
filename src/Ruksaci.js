@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
+import './App.css'
 import Footer from './Footer'
 import { db } from './config/firebase';
 import { getDocs, collection } from 'firebase/firestore';
@@ -50,9 +51,9 @@ export default function Ruksaci() {
    <Container fluid>
       <Row className="justify-content-center">
       {backpacks.map((ruksak, h) => (
-        <Col key={h} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
+        <Col key={h} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
-        <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
+        <Card onClick={() => handleProductClick(ruksak)} className="pt-3 bg-light text-center overflow-hidden">
           <Card.Img variant="top" src={ruksak.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -65,9 +66,9 @@ export default function Ruksaci() {
               
             </Card.Text>
 
-            <Button onClick={() => handleProductClick(ruksak)} size="sm" variant='outline-dark'>Pogledaj</Button>
+            <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(ruksak)} size="sm" variant='outline-dark'>Pogledaj</Button>
           
-            <Button onClick={() => handleAddToCart(ruksak)} style={{ marginTop: '5px' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(ruksak)}>{addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            <Button onClick={() => handleAddToCart(ruksak)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(ruksak)}>{addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
         </Card.Body>
           
         </Card>

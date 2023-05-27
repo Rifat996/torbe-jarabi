@@ -51,7 +51,7 @@ export default function Torbe() {
       {bags.map((torba, a) => (
         <Col key={a} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
-        <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
+        <Card onClick={() => handleProductClick(torba)} className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
           <Card.Img variant="top" src={torba.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -64,9 +64,9 @@ export default function Torbe() {
               
             </Card.Text>
 
-            <Button onClick={() => handleProductClick(torba)} size="sm" variant='outline-dark'>Pogledaj</Button>
+            <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(torba)} size="sm" variant='outline-dark'>Pogledaj</Button>
           
-            <Button onClick={() => handleAddToCart(torba)} style={{ marginTop: '5px' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(torba)}>{addedToCart.includes(torba) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            <Button onClick={() => handleAddToCart(torba)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(torba)}>{addedToCart.includes(torba) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
         </Card.Body>
           
         </Card>
