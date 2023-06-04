@@ -86,18 +86,18 @@ export default function Main() {
         {mainProducts.map((product, k) => (
         <Col key={k} xs={12} md={5} lg={6} className="pt-3 bg-light text-center overflow-hidden col-container" style={{ maxWidth: "500px", margin:"10px"}}>
           <div>
-            <h2 className="display-5">{product.naziv}</h2>
-            <p className="lead">{product.detaljno}</p>
-            
+            <h2 className="display-5">{product.naziv}</h2>            
           </div>
           <div
             className=" mx-auto image-container"
             style={{backgroundImage: `url(${product.fotografija})`, backgroundRepeat: "no-repeat", backgroundSize: "contain", backgroundPosition: "center", width: "80%", height: 300 }} onClick={() => handleProductClick(product)}
           />
-          <div style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <strong>{product.cijena} KM</strong>
 
-          <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' onClick={() => handleProductClick(product)}>Pogledaj</Button>
+          <strong>{product.cijena} KM</strong>
+          <div style={{margin: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          
+
+          <Button style={{ margin: '5px',borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' onClick={() => handleProductClick(product)}>Pogledaj</Button>
           
           <Button onClick={() => handleAddToCart(product)} style={{ margin: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
           </div>

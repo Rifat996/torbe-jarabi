@@ -18,7 +18,6 @@ export default function Cart() {
     const [reservationStatus, setReservationStatus] = useState(null);
 
 
-    
     const handleRemoveFromCart = (product) => {
         removeFromCart(product);
       };
@@ -144,33 +143,37 @@ export default function Cart() {
                     {showForm && (
                 <Row className="justify-content-center">
                     <Col xs={11} md={8} lg={6} className="pt-3 text-center bg-light overflow-hidden col-container" style={{ margin:"10px"}}>
-                    <Form style={{ padding: '20px' }}>
+                    <Form onSubmit={sendOrderEmail} style={{ padding: '20px' }}>
                         <Form.Group controlId="fullName">
                         <Form.Label>Ime i Prezime</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Unesite vaše ime i prezime"
+                            placeholder="Vaše ime i prezime"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
+                            required
                         />
                         </Form.Group>
 
                         <Form.Group controlId="address">
                         <Form.Label>Adresa stanovanja</Form.Label>
-                        <Form.Control type="text" placeholder="Unesite Vašu adresu stanovanja" value={address}
-                        onChange={(e) => setAddress(e.target.value)}/>
+                        <Form.Control type="text" placeholder="Vaša adresa stanovanja" value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        required/>
                         </Form.Group>
 
                         <Form.Group controlId="city">
                         <Form.Label>Grad</Form.Label>
                         <Form.Control type="text" placeholder="Grad u kojem živite" value={city}
-                        onChange={(e) => setCity(e.target.value)}/>
+                        onChange={(e) => setCity(e.target.value)}
+                        required/>
                         </Form.Group>
 
                         <Form.Group controlId="phoneNumber">
                         <Form.Label>Broj telefona</Form.Label>
-                        <Form.Control type="text" placeholder="Unesite Vaš broj telefona" value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}/>
+                        <Form.Control type="text" placeholder="Vaš broj telefona" value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        required/>
                         </Form.Group>
 
                         <Form.Group controlId="email">
@@ -178,8 +181,11 @@ export default function Cart() {
                         <Form.Control type="email" placeholder="Unesite vaš email (nije obavezno)" value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
+                        <p style={{ margin: '8px', border: '2px solid #381c3ddf', borderRadius: '5px', padding: '5px', background: '#e4dae9' }}>Plaćanje narudžbe se vrši po isporuci na adresu. Dostava 8 KM.</p>
 
-                        <Button onClick={sendOrderEmail} style={{ margin:"10px", borderRadius: '0', borderColor: '#d9d9d9' }} variant="primary" type="submit">
+                        
+
+                        <Button style={{ margin:"10px", borderRadius: '0', borderColor: '#d9d9d9' }} variant="primary" type="submit">
                             Naruči
                         </Button>
                         ili
@@ -189,6 +195,7 @@ export default function Cart() {
                             }} style={{ margin:"10px", borderRadius: '0', borderColor: '#d9d9d9' }} variant="primary" type="submit">
                             Naruči preko WhatsApp-a
                         </Button>
+                        <p style={{ margin: '8px', border: '2px solid #381c3ddf', borderRadius: '5px', padding: '5px', background: '#25D366', color: 'white' }}>Ukoliko naručujete preko WhatsApp-a potrebno je da broj +38762069303 sačuvate kao kontakt u Vašem telefonu prije same narudžbe.</p>
                         
                     </Form>
                     </Col>
@@ -200,13 +207,13 @@ export default function Cart() {
 
         {reservationStatus === 'success' && (
         <Alert variant="success">
-            You successfully made your reservation. You can expect the delivery of your desired product in 48 hours if you are currently based in Bosnia and Herzegovina.
+            Rezervacija uspješno napravljena.
         </Alert>
         )}
 
         {reservationStatus === 'error' && (
         <Alert variant="danger">
-            There was an error making your reservation. Please try again later.
+            Nažalost nismo u mogućnosti zabilježiti Vašu narudžbu. Molimo Vas da pokušate kasnije.
         </Alert>
         )}
 

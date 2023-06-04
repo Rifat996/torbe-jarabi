@@ -52,8 +52,8 @@ export default function Cekeri() {
       {checkers.map((ceker, l) => (
         <Col key={l} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
-        <Card onClick={() => handleProductClick(ceker)} className="pt-3 bg-light text-center overflow-hidden">
-          <Card.Img variant="top" src={ceker.fotografija} />
+        <Card className="pt-3 bg-light text-center overflow-hidden">
+          <Card.Img onClick={() => handleProductClick(ceker)} variant="top" src={ceker.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{ceker.naziv}</Card.Title>

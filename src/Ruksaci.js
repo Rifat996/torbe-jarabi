@@ -53,8 +53,8 @@ export default function Ruksaci() {
       {backpacks.map((ruksak, h) => (
         <Col key={h} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
-        <Card onClick={() => handleProductClick(ruksak)} className="pt-3 bg-light text-center overflow-hidden">
-          <Card.Img variant="top" src={ruksak.fotografija} />
+        <Card className="pt-3 bg-light text-center overflow-hidden">
+          <Card.Img onClick={() => handleProductClick(ruksak)} variant="top" src={ruksak.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{ruksak.naziv}</Card.Title>

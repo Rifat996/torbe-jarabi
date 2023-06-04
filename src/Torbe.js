@@ -51,8 +51,8 @@ export default function Torbe() {
       {bags.map((torba, a) => (
         <Col key={a} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
-        <Card onClick={() => handleProductClick(torba)} className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
-          <Card.Img variant="top" src={torba.fotografija} />
+        <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
+          <Card.Img onClick={() => handleProductClick(torba)} variant="top" src={torba.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{torba.naziv}</Card.Title>

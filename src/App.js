@@ -119,7 +119,7 @@ const Root = () => {
             <img style={{width: "40px", position: "absolute", top: "4px"}} src={TorbeLogo} alt='logo'></img>
           </Link>
           <Link to='/' className="py-2 d-none d-md-inline-block text-decoration-none">
-            Početna
+            TORBE JARABI
           </Link>
           <Link to='/products' className="py-2 text-decoration-none">
             Kategorije
