@@ -116,10 +116,10 @@ const Root = () => {
         <header className="site-header sticky-top py-1">
         <nav className="container d-flex justify-content-between">
           <Link className="py-2 text-decoration-none" to="/" aria-label="Product">
-            <img style={{width: "40px", position: "absolute", top: "4px"}} src={TorbeLogo} alt='logo'></img>
+            <img style={{width: "45px", position: "absolute", top: "3px", borderRadius: "5px"}} src={TorbeLogo} alt='logo'></img>
           </Link>
           <Link to='/' className="py-2 d-none d-md-inline-block text-decoration-none">
-            TORBE JARABI
+            TORBEJARABI
           </Link>
           <Link to='/products' className="py-2 text-decoration-none">
             Kategorije

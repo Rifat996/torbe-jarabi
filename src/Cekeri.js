@@ -50,16 +50,15 @@ export default function Cekeri() {
     <Container fluid>
       <Row className="justify-content-center">
       {checkers.map((ceker, l) => (
-        <Col key={l} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
+        <Col key={l} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
-        <Card className="pt-3 bg-light text-center overflow-hidden">
+        <Card className="pt-3 text-center overflow-hidden">
           <Card.Img onClick={() => handleProductClick(ceker)} variant="top" src={ceker.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{ceker.naziv}</Card.Title>
             <Card.Text style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         
-              {ceker.detaljno}
 
               <strong>{ceker.cijena} KM</strong>
               

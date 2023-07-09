@@ -111,7 +111,7 @@ export default function Cart() {
             <Container fluid>
                 <Row className="justify-content-center">{cartItems.map((product, index) => (
                     <Col xs={6} md={4} lg={2} key={index} className="mt-3 pt-3 text-center bg-light overflow-hidden col-container">
-                        <Card className='bg-light' style={{ border: 'none' }}>
+                        <Card style={{ border: 'none' }}>
                             <Card.Img variant="top" src={product.fotografija} />
 
                             <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

@@ -8,7 +8,7 @@ export default function About() {
     <>
 <style>{`
           body {
-            font-size: 19px
+            font-size: 17px
           }
         `}</style>
 
@@ -24,7 +24,9 @@ export default function About() {
                 <p>Naša misija u Torbejarabi je jednostavna: usrećiti žene i obogatiti njihovu svakodnevnicu. Želimo da se osjećate lijepo, posebno i jedinstveno, baš kao i naše torbe.</p>
                 <p>Vizija ovog brenda je da zajedno sa vama kreiramo i širimo našu domaću, bosansku modu.</p>
                 <h2>NAŠE KORMILARICE</h2>
-                <img  src={Klapa} alt='klapa' style={{ width: '100%', height: 'auto' }}></img>
+                <div className="image-container2">
+                  <img src={Klapa} alt='klapa'></img>
+                </div>
                 <p>Pozorišna glumica Selma Mehanović i Amela Hasanbegović, dvije Zeničanke s vatrom u srcu i kreativnošću u rukama, okosnice su ove priče. Bile su dobre prijateljice prije, ali sada su i partnerske duše u ovom modnom podvigu. U svoje tkanine nastoje udahnuti osobnost i ispričati priču, a svaka torba otkriva posebne vrijednosti. Pa to onda nisu samo torbe, to su i mini mezimice, zamamne prijateljice koje obožavamo vodati sa sobom.</p>
                 <h2>OD IDEJE DO STVARNOSTI </h2>
                 <p>Sve je počelo uz potrebu za kreativnim izražavanjem, jedan kurs i jednu šivaću mašinu. Selma je osjetila poziv da ideje koje stanuju u njenoj mašti izrazi kroz šivanje, dok je Amela osjetila istu potrebu da stvori nešto posebno. Selmin muž, Adis, kreativno je spojio riječi i našem brendu dao ime - Torbejarabi, kreativnu I duhovitu igru riječi savršenu za našu kolekciju torbi.</p>

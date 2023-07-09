@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Row, Col } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -21,6 +21,10 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
       original: ruksak.fotografija3,
       thumbnail: ruksak.fotografija3,
     },
+    {
+      original: ruksak.fotografija4,
+      thumbnail: ruksak.fotografija4,
+    },
   ];
 
   return (
@@ -34,27 +38,21 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
       <Modal.Header closeButton>
         <Modal.Title>{ruksak.naziv}</Modal.Title>
       </Modal.Header>
-      <Modal.Body
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <ImageGallery items={images} />
-        <p>{ruksak.detaljno}</p>
+      <Modal.Body>
+      <Row className="flex-lg-row flex-column">
+        <Col lg={true}>
+          <ImageGallery items={images} />
+        </Col>
+        <Col lg={true}>
+          <p className="p-3">{ruksak.detaljno}</p>
+        </Col>
+      </Row>
+      <Row className='text-center align-items-center'>
+      <Col>
         <strong>{ruksak.cijena} KM</strong>
-        <div
-          style={{
-            margin: '5px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Button
+        </Col>
+        <Col>
+        <Button
             onClick={() => addToCart(ruksak)}
             style={{ marginTop: '5px' }}
             size="sm"
@@ -63,7 +61,9 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
           >
             {addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
           </Button>
-        </div>
+        </Col>
+      </Row>
+         
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>

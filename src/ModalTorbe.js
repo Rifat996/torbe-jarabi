@@ -21,6 +21,10 @@ const ModalTorbe = ({ addedToCart, addToCart, torba, showModal, onClose }) => {
       original: torba.fotografija3,
       thumbnail: torba.fotografija3,
     },
+    {
+      original: torba.fotografija4,
+      thumbnail: torba.fotografija4,
+    },
   ];
 
   return (

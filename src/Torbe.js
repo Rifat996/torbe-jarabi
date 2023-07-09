@@ -58,7 +58,6 @@ export default function Torbe() {
             <Card.Title>{torba.naziv}</Card.Title>
             <Card.Text style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         
-              {torba.detaljno}
 
               <strong>{torba.cijena} KM</strong>
               

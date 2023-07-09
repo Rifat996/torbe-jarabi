@@ -23,6 +23,14 @@ const ModalProduct = ({addedToCart, addToCart, product, showModal, onClose }) =>
     {
       original: product.fotografija3,
       thumbnail: product.fotografija3,
+    },
+    {
+      original: product.fotografija4,
+      thumbnail: product.fotografija4,
+    },
+    {
+      original: product.fotografija5,
+      thumbnail: product.fotografija5,
     }
     
   ];

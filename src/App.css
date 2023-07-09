@@ -164,3 +164,16 @@ body, .modalbg {
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
 }
+
+.image-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.image-container2 img {
+  max-width: 100%;
+  height: auto;
+}
