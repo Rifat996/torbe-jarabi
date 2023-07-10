@@ -35,7 +35,7 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className='modalbg' closeButton>
         <Modal.Title>{ruksak.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -49,7 +49,7 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
       </Row>
       <Row className='text-center align-items-center'>
       <Col>
-        <strong>{ruksak.cijena} KM</strong>
+        <strong>Cijena: {ruksak.cijena} KM</strong>
         </Col>
         <Col>
         <Button
@@ -65,7 +65,7 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
       </Row>
          
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='modalbg'>
         <Button variant="secondary" onClick={onClose}>
           Close
         </Button>

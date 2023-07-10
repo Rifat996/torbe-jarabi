@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
-import TorbeLogo from './images/torbe-logo1.png'
+import TorbeLogo1 from './images/tjlogo.jpg'
 
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
       <footer className="container-fluid py-5">
     <div className="row">
       <div className="col-12 col-md">
-      <img style={{maxWidth: "30px"}} src={TorbeLogo} alt='logo'></img>
+      <img style={{maxWidth: "30px"}} src={TorbeLogo1} alt='logo'></img>
         <small className="d-block mb-3 text-muted">© 2019 - 2023</small>
       </div>
       <div className="col-6 col-md">

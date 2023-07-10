@@ -35,7 +35,7 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className='modalbg' closeButton>
         <Modal.Title>{ceker.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -49,7 +49,7 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
       </Row>
       <Row className='text-center align-items-center'>
         <Col>
-        <strong>{ceker.cijena} KM</strong>
+        <strong>Cijena: {ceker.cijena} KM</strong>
         </Col>
         <Col>
         <Button
@@ -64,7 +64,7 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
         </Col>
       </Row>
     </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='modalbg'>
       
         
         

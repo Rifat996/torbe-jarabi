@@ -177,3 +177,18 @@ body, .modalbg {
   max-width: 100%;
   height: auto;
 }
+
+.logoimg1 {
+  width: 100px;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .logoimg1 {
+    width: 52px;
+    top: 0px;
+    left: 0px;
+  }
+}

@@ -9,7 +9,7 @@ import Torbe from './Torbe';
 import Cekeri from './Cekeri';
 import Neseseri from './Neseseri';
 import Bubrezi from './Bubrezi';
-import TorbeLogo from './images/torbe-logo1.png'
+import TorbeLogo1 from './images/tjlogo.jpg';
 import Cart from './Cart';
 import { CartProvider } from './CartContext';
 import CartBadge from './CartBadge';
@@ -114,9 +114,9 @@ const Root = () => {
           
     
         <header className="site-header sticky-top py-1">
-        <nav className="container d-flex justify-content-between">
+        <nav className="container d-flex justify-content-between align-items-center">
           <Link className="py-2 text-decoration-none" to="/" aria-label="Product">
-            <img style={{width: "45px", position: "absolute", top: "3px", borderRadius: "5px"}} src={TorbeLogo} alt='logo'></img>
+            <img className='logoimg1' src={TorbeLogo1} alt='logo'></img>
           </Link>
           <Link to='/' className="py-2 d-none d-md-inline-block text-decoration-none">
             TORBEJARABI
