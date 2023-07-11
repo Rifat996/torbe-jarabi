@@ -93,7 +93,7 @@ export default function Cekeri() {
         <Col key={l} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
         <Card className="pt-3 text-center overflow-hidden card-cover">
-          <Card.Img onClick={() => handleProductClick(ceker)} variant="top" src={ceker.fotografija} />
+          <Card.Img className='card-cover3' onClick={() => handleProductClick(ceker)} variant="top" src={ceker.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{ceker.naziv}</Card.Title>

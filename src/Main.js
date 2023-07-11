@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import { Carousel, Row, Col, Container, Button } from 'react-bootstrap';
+import { Carousel, Row, Col, Container, Button, Card } from 'react-bootstrap';
 import { db } from './config/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import ModalProduct from './ModalProduct';
 import { CartContext } from './CartContext';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
 
 
@@ -66,6 +67,8 @@ export default function Main() {
       setAddedToCart([...addedToCart, product]);
     };
 
+    
+
 
   return (
     <>
@@ -82,30 +85,41 @@ export default function Main() {
         </Carousel.Item>
         ))}
       </Carousel>
-      <Button href='/products' className='glow-on-hover btn1'>Izaberi svoju Torbejarabi!</Button>
+      <Link to='/products' ><Button className='glow-on-hover btn1'>Izaberi svoju Torbejarabi!</Button></Link>
     </div>
-    <Container fluid style={{ width: '99%' }}>
+    <Container fluid>
       <Row className="justify-content-center">
       <TransitionGroup className="row justify-content-center">
         {mainProducts.map((product, k) => (
           <CSSTransition key={k} classNames="fade" timeout={500}>
-        <Col key={k} xs={12} md={5} lg={6} className="pt-3 bg-light text-center overflow-hidden col-container" style={{ maxWidth: "500px", margin:"10px"}}>
-          <div>
-            <h2 className="display-5">{product.naziv}</h2>            
-          </div>
-          <div
-            className=" mx-auto image-container"
-            style={{backgroundImage: `url(${product.fotografija})`, backgroundRepeat: "no-repeat", backgroundSize: "contain", backgroundPosition: "center", width: "80%", height: 300 }} onClick={() => handleProductClick(product)}
-          />
+        <Col key={k} xs={6} md={5} lg={3} className="pt-3 text-center overflow-hidden col-container bg-light">
+        <Card 
+        className="pt-3 text-center card-cover bg-light" style={{ border: 'none' }}>
+          <Card.Img className='card-cover3' onClick={() => handleProductClick(product)} variant="top" src={product.fotografija} />
 
-          <strong>{product.cijena} KM</strong>
-          <div style={{margin: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          
+          <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <Card.Title>{product.naziv}</Card.Title>
+            <Card.Text style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        
 
-          <Button style={{ margin: '5px',borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' onClick={() => handleProductClick(product)}>Pogledaj</Button>
+              <strong>{product.cijena} KM</strong>
+              
+            </Card.Text>
+
+            <Button 
+            style={{ borderRadius: '0', borderColor: '#d9d9d9' }} 
+            onClick={() => handleProductClick(product)} size="sm" variant='outline-dark'
+            className='card-cover2'
+            >Pogledaj</Button>
           
-          <Button onClick={() => handleAddToCart(product)} style={{ margin: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
-          </div>
+            <Button 
+            onClick={() => handleAddToCart(product)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}
+            className='card-cover2'
+            >{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            
+        </Card.Body>
+          
+        </Card>
         </Col>
         </CSSTransition>
       ))}

@@ -1,49 +1,57 @@
 import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import TorbeLogo1 from './images/tjlogo.jpg'
-
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <div>
-      <footer className="container-fluid py-5">
-    <div className="row">
-      <div className="col-12 col-md">
-      <img style={{maxWidth: "30px"}} src={TorbeLogo1} alt='logo'></img>
-        <small className="d-block mb-3 text-muted">© 2019 - 2023</small>
-      </div>
-      <div className="col-6 col-md">
-        <h5>Proizvodi</h5>
-        <ul className="list-unstyled text-small">
-          <li>
-            <a className="link-secondary" href="/products">
+    <footer className="p-5">
+<Container>
+  <Row>
+    <Col md={4} className="text-md-left mt-5">
+      <img style={{maxWidth: "50px"}} src={TorbeLogo1} alt='logo' />
+      <small>  TORBEJARABI © 2019 - 2023</small>
+    </Col>
+    <Col md={4} className="text-md-left mt-5">
+      <ul className="list-unstyled">
+        <li className='pt-2'>
+        <Link className="py-2 text-decoration-none text-dark" to="/products">
               Proizvodi
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="col-6 col-md">
-        <h5>Korpa</h5>
-        <ul className="list-unstyled text-small">
-          <li>
-            <a className="link-secondary" href="/cart">
+        </Link>
+        </li>
+        <li className='pt-2'>
+        <Link className="py-2 text-decoration-none text-dark" to="/cart">
               Korpa
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="col-6 col-md">
-        <h5>O nama</h5>
-        <ul className="list-unstyled text-small">
-          <li>
-            <a className="link-secondary" href="/about">
+        </Link>
+        </li>
+        <li className='pt-2'>
+        <Link className="py-2 text-decoration-none text-dark" to="/about">
               O nama
-            </a>
+        </Link>
+        </li>
+        <li className='pt-2'>
+         
           </li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-    </div>
+      </ul>
+    </Col>
+    <Col md={4} className="text-md-left mt-5">
+    <ul className="list-unstyled">
+      
+      <li className='pt-2'>
+          Email: torbejarabi@gmail.com
+      </li>
+      <li className='pt-2'>
+          Tel: 38762069303
+      </li>
+
+    </ul>
+    </Col>
+  </Row>
+</Container>
+</footer>
+       
   )
 }
+
+

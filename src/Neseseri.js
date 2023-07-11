@@ -51,7 +51,7 @@ export default function Neseseri() {
         <Col key={s} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden card-cover">
 
         <Card className="pt-3 bg-light text-center overflow-hidden" style={{ border: 'none' }}>
-          <Card.Img onClick={() => handleProductClick(neseser)} variant="top" src={neseser.fotografija} />
+          <Card.Img className='card-cover3' onClick={() => handleProductClick(neseser)} variant="top" src={neseser.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{neseser.naziv}</Card.Title>

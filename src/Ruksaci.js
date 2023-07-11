@@ -97,7 +97,7 @@ export default function Ruksaci() {
         <Col key={h} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
         <Card className="pt-3 text-center overflow-hidden card-cover">
-          <Card.Img onClick={() => handleProductClick(ruksak)} variant="top" src={ruksak.fotografija} />
+          <Card.Img className='card-cover3' onClick={() => handleProductClick(ruksak)} variant="top" src={ruksak.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{ruksak.naziv}</Card.Title>
