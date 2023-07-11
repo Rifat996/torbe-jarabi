@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Row, Col } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -34,37 +34,33 @@ const ModalNeseseri = ({ addedToCart, addToCart, neseser, showModal, onClose }) 
       <Modal.Header closeButton>
         <Modal.Title>{neseser.naziv}</Modal.Title>
       </Modal.Header>
-      <Modal.Body
-        style={{
+      <Modal.Body>
+      <Row>
+        <Col xs={12} md={6} lg={6}>
+          <ImageGallery items={images} />
+        </Col>
+        <Col style={{
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <ImageGallery items={images} />
-        <p>{neseser.detaljno}</p>
-        <strong>{neseser.cijena} KM</strong>
-        <div
-          style={{
-            margin: '5px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
+          flexDirection: 'column'
+        }} className="p-3" xs={12} md={12} lg={6}>
+
+          <p>{neseser.detaljno}</p>
+          <p>Materijal: <strong>{neseser.materijal}</strong></p>
+          <p>Dimenzije: <strong>{neseser.dimenzije}</strong></p>
+
+          <h5 className='pt-5'><strong>Cijena: {neseser.cijena} KM</strong></h5>
+
           <Button
-            onClick={() => addToCart(neseser)}
-            style={{ marginTop: '5px' }}
-            size="sm"
-            variant="outline-dark"
-            disabled={addedToCart.includes(neseser)}
-          >
-            {addedToCart.includes(neseser) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
-          </Button>
-        </div>
-      </Modal.Body>
+          onClick={() => addToCart(neseser)}
+          size="sm"
+          variant="outline-dark"
+          disabled={addedToCart.includes(neseser)}
+        >
+          {addedToCart.includes(neseser) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
+        </Button>
+        </Col>
+        </Row>
+    </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
           Close

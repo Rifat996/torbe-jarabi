@@ -6,6 +6,7 @@ import { db } from './config/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import ModalProduct from './ModalProduct';
 import { CartContext } from './CartContext';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 
 
@@ -71,8 +72,10 @@ export default function Main() {
       
     <div className="position-relative overflow-hidden p-3 p-md-1 m-md-3 text-center">
         <Carousel>
+      
         {heroProducts.map((hero, p) => (
-        <Carousel.Item key={p} className='carousel-item'>
+          
+        <Carousel.Item key={p} className='carousel-item card-cover'>
           <img className="carousel-image sketchy" src={window.innerWidth > 768 ? hero.fotkecijele : hero.fotkemobilni}
             alt="Product 1"
           />
@@ -83,7 +86,9 @@ export default function Main() {
     </div>
     <Container fluid style={{ width: '99%' }}>
       <Row className="justify-content-center">
+      <TransitionGroup className="row justify-content-center">
         {mainProducts.map((product, k) => (
+          <CSSTransition key={k} classNames="fade" timeout={500}>
         <Col key={k} xs={12} md={5} lg={6} className="pt-3 bg-light text-center overflow-hidden col-container" style={{ maxWidth: "500px", margin:"10px"}}>
           <div>
             <h2 className="display-5">{product.naziv}</h2>            
@@ -102,7 +107,9 @@ export default function Main() {
           <Button onClick={() => handleAddToCart(product)} style={{ margin: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
           </div>
         </Col>
+        </CSSTransition>
       ))}
+      </TransitionGroup>
       </Row>
     </Container>
 

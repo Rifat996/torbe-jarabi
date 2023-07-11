@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Row, Col } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 import './App.css';
@@ -42,14 +42,33 @@ const ModalProduct = ({addedToCart, addToCart, product, showModal, onClose }) =>
       <Modal.Header className='modalbg' closeButton>
         <Modal.Title>{product.naziv}</Modal.Title>
       </Modal.Header>
-      <Modal.Body style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <ImageGallery items={images}/>
-        <p>{product.detaljno}</p>
-        <strong>{product.cijena} KM</strong>
-        <div style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <Button onClick={() => addToCart(product)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(product)}>{addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
-        </div>
-      </Modal.Body>
+      <Modal.Body>
+      <Row>
+        <Col xs={12} md={6} lg={6}>
+          <ImageGallery items={images} />
+        </Col>
+        <Col style={{
+          display: 'flex',
+          flexDirection: 'column'
+        }} className="p-3" xs={12} md={12} lg={6}>
+
+          <p>{product.detaljno}</p>
+          <p>Materijal: <strong>{product.materijal}</strong></p>
+          <p>Dimenzije: <strong>{product.dimenzije}</strong></p>
+
+          <h5 className='pt-5'><strong>Cijena: {product.cijena} KM</strong></h5>
+
+          <Button
+          onClick={() => addToCart(product)}
+          size="sm"
+          variant="outline-dark"
+          disabled={addedToCart.includes(product)}
+        >
+          {addedToCart.includes(product) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
+        </Button>
+        </Col>
+        </Row>
+    </Modal.Body>
       <Modal.Footer className='modalbg'>
         <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} variant="secondary" onClick={onClose}>
           Close

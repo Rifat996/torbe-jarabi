@@ -116,13 +116,13 @@ const Root = () => {
         <header className="site-header sticky-top py-1">
         <nav className="container d-flex justify-content-between align-items-center">
           <Link className="py-2 text-decoration-none" to="/" aria-label="Product">
-            <img className='logoimg1' src={TorbeLogo1} alt='logo'></img>
+            <img className='logoimg1 card-cover2' src={TorbeLogo1} alt='logo'></img>
           </Link>
           <Link to='/' className="py-2 d-none d-md-inline-block text-decoration-none">
             TORBEJARABI
           </Link>
           <Link to='/products' className="py-2 text-decoration-none">
-            Kategorije
+            Proizvodi
           </Link>
           <Link to='/about' className="py-2 text-decoration-none">
             O nama

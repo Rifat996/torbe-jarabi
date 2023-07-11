@@ -92,7 +92,7 @@ export default function Torbe() {
       {bags.map((torba, a) => (
         <Col key={a} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
-        <Card className="pt-3 text-center overflow-hidden">
+        <Card className="pt-3 text-center overflow-hidden card-cover">
           <Card.Img onClick={() => handleProductClick(torba)} variant="top" src={torba.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -104,15 +104,23 @@ export default function Torbe() {
               
             </Card.Text>
 
-            <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(torba)} size="sm" variant='outline-dark'>Pogledaj</Button>
+            <Button 
+            style={{ borderRadius: '0', borderColor: '#d9d9d9' }} 
+            onClick={() => handleProductClick(torba)} size="sm" variant='outline-dark'
+            className='card-cover2'
+            >Pogledaj</Button>
           
-            <Button onClick={() => handleAddToCart(torba)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(torba)}>{addedToCart.includes(torba) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            <Button 
+            onClick={() => handleAddToCart(torba)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(torba)}
+            className='card-cover2'
+            >{addedToCart.includes(torba) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
             <Button
               onClick={() => handleIncrementLikes(torba)}
               style={{ border: "none", position: "absolute", top: "5px", right: "5px"}}
               size="sm"
               variant="outline-dark"
               disabled={likedTorbas.includes(torba.id)}
+              className='card-cover2'
             >
               <FontAwesomeIcon icon={faHeart} />
               <div>

@@ -39,32 +39,32 @@ const ModalTorbe = ({ addedToCart, addToCart, torba, showModal, onClose }) => {
         <Modal.Title>{torba.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <Row className="flex-lg-row flex-column">
-        <Col lg={true}>
+      <Row>
+        <Col xs={12} md={6} lg={6}>
           <ImageGallery items={images} />
         </Col>
-        <Col lg={true}>
-          <p className="p-3">{torba.detaljno}</p>
+        <Col style={{
+          display: 'flex',
+          flexDirection: 'column'
+        }} className="p-3" xs={12} md={12} lg={6}>
+
+          <p>{torba.detaljno}</p>
+          <p>Materijal: <strong>{torba.materijal}</strong></p>
+          <p>Dimenzije: <strong>{torba.dimenzije}</strong></p>
+
+          <h5 className='pt-5'><strong>Cijena: {torba.cijena} KM</strong></h5>
+
+          <Button
+          onClick={() => addToCart(torba)}
+          size="sm"
+          variant="outline-dark"
+          disabled={addedToCart.includes(torba)}
+        >
+          {addedToCart.includes(torba) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
+        </Button>
         </Col>
-      </Row>
-      <Row className='text-center align-items-center'>
-      <Col>
-        <strong>Cijena: {torba.cijena} KM</strong>
-        </Col>
-        <Col>
-        <Button
-            onClick={() => addToCart(torba)}
-            style={{ marginTop: '5px' }}
-            size="sm"
-            variant="outline-dark"
-            disabled={addedToCart.includes(torba)}
-          >
-            {addedToCart.includes(torba) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
-          </Button>
-        </Col>
-      </Row>
-         
-      </Modal.Body>
+        </Row>
+    </Modal.Body>
       <Modal.Footer className='modalbg'>
         <Button variant="secondary" onClick={onClose}>
           Close

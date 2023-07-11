@@ -9,6 +9,8 @@ import { CartContext } from './CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
+
+
 export default function Ruksaci() {
   const [backpacks, setBackpacks] = useState([]);
   const productsCollectionRef = collection(db, "ruksaci");
@@ -89,10 +91,12 @@ export default function Ruksaci() {
    <>
    <Container fluid>
       <Row className="justify-content-center">
+      
       {backpacks.map((ruksak, h) => (
+        
         <Col key={h} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden ">
 
-        <Card className="pt-3 text-center overflow-hidden">
+        <Card className="pt-3 text-center overflow-hidden card-cover">
           <Card.Img onClick={() => handleProductClick(ruksak)} variant="top" src={ruksak.fotografija} />
 
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -103,14 +107,15 @@ export default function Ruksaci() {
               
             </Card.Text>
 
-            <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(ruksak)} size="sm" variant='outline-dark'>Pogledaj</Button>
+            <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(ruksak)} size="sm" variant='outline-dark' className='card-cover2'>Pogledaj</Button>
           
-            <Button onClick={() => handleAddToCart(ruksak)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(ruksak)}>{addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            <Button onClick={() => handleAddToCart(ruksak)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" className='card-cover2' variant='outline-dark' disabled={addedToCart.includes(ruksak)}>{addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
             <Button
               onClick={() => handleIncrementLikes(ruksak)}
               style={{ border: "none", position: "absolute", top: "5px", right: "3px"}}
               size="sm"
               variant="outline-dark"
+              className='card-cover2'
               disabled={likedBackpacks.includes(ruksak.id)}
             >
               <FontAwesomeIcon icon={faHeart} />

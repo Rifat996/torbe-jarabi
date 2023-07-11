@@ -31,7 +31,7 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
     <Modal
       show={showModal}
       onHide={onClose}
-      size="lg"
+      size="xl"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -39,32 +39,32 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
         <Modal.Title>{ruksak.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <Row className="flex-lg-row flex-column">
-        <Col lg={true}>
+      <Row>
+        <Col xs={12} md={6} lg={6}>
           <ImageGallery items={images} />
         </Col>
-        <Col lg={true}>
-          <p className="p-3">{ruksak.detaljno}</p>
+        <Col style={{
+          display: 'flex',
+          flexDirection: 'column'
+        }} className="p-3" xs={12} md={12} lg={6}>
+
+          <p>{ruksak.detaljno}</p>
+          <p>Materijal: <strong>{ruksak.materijal}</strong></p>
+          <p>Dimenzije: <strong>{ruksak.dimenzije}</strong></p>
+
+          <h5 className='pt-5'><strong>Cijena: {ruksak.cijena} KM</strong></h5>
+
+          <Button
+          onClick={() => addToCart(ruksak)}
+          size="sm"
+          variant="outline-dark"
+          disabled={addedToCart.includes(ruksak)}
+        >
+          {addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
+        </Button>
         </Col>
-      </Row>
-      <Row className='text-center align-items-center'>
-      <Col>
-        <strong>Cijena: {ruksak.cijena} KM</strong>
-        </Col>
-        <Col>
-        <Button
-            onClick={() => addToCart(ruksak)}
-            style={{ marginTop: '5px' }}
-            size="sm"
-            variant="outline-dark"
-            disabled={addedToCart.includes(ruksak)}
-          >
-            {addedToCart.includes(ruksak) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
-          </Button>
-        </Col>
-      </Row>
-         
-      </Modal.Body>
+        </Row>
+    </Modal.Body>
       <Modal.Footer className='modalbg'>
         <Button variant="secondary" onClick={onClose}>
           Close

@@ -39,22 +39,23 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
         <Modal.Title>{ceker.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <Row className="flex-lg-row flex-column">
-        <Col lg={true}>
+      <Row>
+        <Col xs={12} md={6} lg={6}>
           <ImageGallery items={images} />
         </Col>
-        <Col lg={true}>
-          <p className="p-3">{ceker.detaljno}</p>
-        </Col>
-      </Row>
-      <Row className='text-center align-items-center'>
-        <Col>
-        <strong>Cijena: {ceker.cijena} KM</strong>
-        </Col>
-        <Col>
-        <Button
+        <Col style={{
+          display: 'flex',
+          flexDirection: 'column'
+        }} className="p-3" xs={12} md={12} lg={6}>
+
+          <p>{ceker.detaljno}</p>
+          <p>Materijal: <strong>{ceker.materijal}</strong></p>
+          <p>Dimenzije: <strong>{ceker.dimenzije}</strong></p>
+
+          <h5 className='pt-5'><strong>Cijena: {ceker.cijena} KM</strong></h5>
+
+          <Button
           onClick={() => addToCart(ceker)}
-          style={{ marginTop: '5px' }}
           size="sm"
           variant="outline-dark"
           disabled={addedToCart.includes(ceker)}
@@ -62,7 +63,7 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
           {addedToCart.includes(ceker) ? 'Dodano u korpu' : 'Dodaj u Korpu'}
         </Button>
         </Col>
-      </Row>
+        </Row>
     </Modal.Body>
       <Modal.Footer className='modalbg'>
       

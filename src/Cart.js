@@ -100,7 +100,7 @@ export default function Cart() {
             {cartItems.length === 0 ? (
                 <Container fluid>
                     <Row className="justify-content-center">
-                        <Col className="pt-3 text-center overflow-hidden" style={{ border: "1px solid black", borderRadius: "10px", maxWidth: "500px", margin:"10px"}}>
+                        <Col className="pt-3 text-center overflow-hidden card-cover" style={{ border: "1px solid black", borderRadius: "10px", maxWidth: "500px", margin:"10px"}}>
                             <h1>Korpa</h1>
                             <p>Hej, dodaj par artikala i napuni Korpu.</p>
                         </Col>
@@ -110,7 +110,7 @@ export default function Cart() {
                 
             <Container fluid>
                 <Row className="justify-content-center">{cartItems.map((product, index) => (
-                    <Col xs={6} md={4} lg={2} key={index} className="mt-3 pt-3 text-center bg-light overflow-hidden col-container">
+                    <Col xs={6} md={4} lg={2} key={index} className="mt-3 pt-3 text-center bg-light overflow-hidden col-container card-cover">
                         <Card style={{ border: 'none' }}>
                             <Card.Img variant="top" src={product.fotografija} />
 
@@ -142,7 +142,7 @@ export default function Cart() {
 
                     {showForm && (
                 <Row className="justify-content-center">
-                    <Col xs={11} md={8} lg={6} className="pt-3 text-center bg-light overflow-hidden col-container" style={{ margin:"10px"}}>
+                    <Col xs={11} md={8} lg={6} className="pt-3 text-center bg-light overflow-hidden col-container card-cover" style={{ margin:"10px"}}>
                     <Form onSubmit={sendOrderEmail} style={{ padding: '20px' }}>
                         <Form.Group controlId="fullName">
                         <Form.Label>Ime i Prezime</Form.Label>
