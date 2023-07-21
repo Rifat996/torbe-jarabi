@@ -46,7 +46,7 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
         <Col style={{
           display: 'flex',
           flexDirection: 'column'
-        }} className="p-3" xs={12} md={12} lg={6}>
+        }} className="p-3 mt-auto" xs={12} md={12} lg={6}>
 
           <p>{ceker.detaljno}</p>
           <p>Materijal: <strong>{ceker.materijal}</strong></p>

@@ -21,6 +21,10 @@ const ModalNeseseri = ({ addedToCart, addToCart, neseser, showModal, onClose }) 
       original: neseser.fotografija3,
       thumbnail: neseser.fotografija3,
     },
+    {
+      original: neseser.fotografija4,
+      thumbnail: neseser.fotografija4,
+    }
   ];
 
   return (
@@ -42,7 +46,7 @@ const ModalNeseseri = ({ addedToCart, addToCart, neseser, showModal, onClose }) 
         <Col style={{
           display: 'flex',
           flexDirection: 'column'
-        }} className="p-3" xs={12} md={12} lg={6}>
+        }} className="p-3 mt-auto" xs={12} md={12} lg={6}>
 
           <p>{neseser.detaljno}</p>
           <p>Materijal: <strong>{neseser.materijal}</strong></p>
