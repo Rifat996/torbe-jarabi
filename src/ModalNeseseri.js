@@ -2,6 +2,10 @@ import React from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const ModalNeseseri = ({ addedToCart, addToCart, neseser, showModal, onClose }) => {
   if (!neseser) {
@@ -35,13 +39,14 @@ const ModalNeseseri = ({ addedToCart, addToCart, neseser, showModal, onClose }) 
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className='modalbg' closeButton>
         <Modal.Title>{neseser.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <Row>
         <Col xs={12} md={6} lg={6}>
-          <ImageGallery items={images} />
+          <ImageGallery
+              items={images} />
         </Col>
         <Col style={{
           display: 'flex',
@@ -65,7 +70,7 @@ const ModalNeseseri = ({ addedToCart, addToCart, neseser, showModal, onClose }) 
         </Col>
         </Row>
     </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='modalbg'>
         <Button variant="secondary" onClick={onClose}>
           Close
         </Button>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
+import "./App.css"
 
 const ModalBubrezi = ({ addedToCart, addToCart, bubreg, showModal, onClose }) => {
   if (!bubreg) {
@@ -31,7 +32,7 @@ const ModalBubrezi = ({ addedToCart, addToCart, bubreg, showModal, onClose }) =>
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+      <Modal.Header className='modalbg' closeButton>
         <Modal.Title>{bubreg.naziv}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -61,7 +62,7 @@ const ModalBubrezi = ({ addedToCart, addToCart, bubreg, showModal, onClose }) =>
         </Col>
         </Row>
     </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className='modalbg'>
         <Button variant="secondary" onClick={onClose}>
           Close
         </Button>

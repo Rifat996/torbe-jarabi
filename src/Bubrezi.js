@@ -47,7 +47,7 @@ export default function Bubrezi() {
     <Container fluid>
       <Row className="justify-content-center">
       {sideBags.map((bubreg, m) => (
-        <Col key={m} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden">
+        <Col key={m} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden">
 
         <Card className="pt-3 bg-light text-center overflow-hidden card-cover" style={{ border: 'none' }}>
           <Card.Img className='card-cover3' onClick={() => handleProductClick(bubreg)} variant="top" src={bubreg.fotografija} />

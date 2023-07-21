@@ -48,7 +48,7 @@ export default function Neseseri() {
     <Container fluid>
       <Row className="justify-content-center">
       {nesessers.map((neseser, s) => (
-        <Col key={s} xs={12} md={5} lg={2} className="pt-3 text-center overflow-hidden card-cover">
+        <Col key={s} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden card-cover">
 
         <Card className="pt-3 text-center overflow-hidden" style={{ border: 'none' }}>
           <Card.Img className='card-cover3' onClick={() => handleProductClick(neseser)} variant="top" src={neseser.fotografija} />
