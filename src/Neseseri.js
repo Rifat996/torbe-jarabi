@@ -57,8 +57,6 @@ export default function Neseseri() {
             <Card.Title>{neseser.naziv}</Card.Title>
             <Card.Text style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         
-              {neseser.detaljno}
-
               <strong>{neseser.cijena} KM</strong>
               
             </Card.Text>

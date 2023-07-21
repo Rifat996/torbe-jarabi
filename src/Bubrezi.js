@@ -55,8 +55,6 @@ export default function Bubrezi() {
           <Card.Body style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Card.Title>{bubreg.naziv}</Card.Title>
             <Card.Text style={{margin: '5px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        
-              {bubreg.detaljno}
 
               <strong>{bubreg.cijena} KM</strong>
               
