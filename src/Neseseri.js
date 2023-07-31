@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Footer from './Footer'
 import { db } from './config/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, updateDoc, doc } from 'firebase/firestore';
 import { Button, Card, Container, Row, Col} from 'react-bootstrap';
 import ModalNeseseri from './ModalNeseseri'
 import { CartContext } from './CartContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Neseseri() {
   const [nesessers, setNesessers] = useState([]);
@@ -13,13 +16,23 @@ export default function Neseseri() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { addToCart } = useContext(CartContext);
   const [addedToCart, setAddedToCart] = useState([]);
+  const [likedNesessers, setLikedNesessers] = useState([]);
+
+
 
   useEffect(() => {
     const getNesessers = async () => {
       // read the data
       try {
       const data = await getDocs(productsCollectionRef);
-      const filteredData = data.docs.map((doc) => ({...doc.data()}));
+      const filteredData = data.docs.map((doc) => {
+        const { likes } = doc.data();
+        return {
+          id: doc.id,
+          ...doc.data(),
+          likes: likes || 0,
+        };
+      });
       setNesessers(filteredData);
       console.log(filteredData)
       } catch (err) {
@@ -40,8 +53,34 @@ export default function Neseseri() {
     setAddedToCart([...addedToCart, neseser]);
   };
 
+  const handleIncrementLikes = async (neseser) => {
+    if (likedNesessers.includes(neseser.id)) {
+      return;
+    }
 
+    const updatedNesessers = nesessers.map((nesesser) => {
+      if (nesesser.id === neseser.id) {
+        const updatedNesesser = {
+          ...nesesser,
+          likes: nesesser.likes + 1,
+        };
+        return updatedNesesser;
+      }
+      return nesesser;
+    });
+  
+    try {
+      const nesesserRef = doc(db, 'neseseri', neseser.id);
+      await updateDoc(nesesserRef, {
+        likes: neseser.likes + 1,
+      });
+      setNesessers(updatedNesessers);
+      setLikedNesessers([...likedNesessers, neseser.id]);
 
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -64,6 +103,19 @@ export default function Neseseri() {
             <Button style={{ borderRadius: '0', borderColor: '#d9d9d9' }} onClick={() => handleProductClick(neseser)} size="sm" variant='outline-dark'>Pogledaj</Button>
           
             <Button onClick={() => handleAddToCart(neseser)} style={{ marginTop: '5px', borderRadius: '0', borderColor: '#d9d9d9' }} size="sm" variant='outline-dark' disabled={addedToCart.includes(neseser)}>{addedToCart.includes(neseser) ? 'Dodano u korpu' : 'Dodaj u Korpu'}</Button>
+            <Button
+              onClick={() => handleIncrementLikes(neseser)}
+              style={{ border: "none", position: "absolute", top: "5px", right: "3px"}}
+              size="sm"
+              variant="outline-dark"
+              className='card-cover2'
+              disabled={likedNesessers.includes(neseser.id)}
+            >
+              <FontAwesomeIcon icon={faHeart} />
+              <div>
+              {neseser.likes}
+              </div>
+            </Button>
         </Card.Body>
           
         </Card>

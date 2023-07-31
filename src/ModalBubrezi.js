@@ -22,6 +22,10 @@ const ModalBubrezi = ({ addedToCart, addToCart, bubreg, showModal, onClose }) =>
       original: bubreg.fotografija3,
       thumbnail: bubreg.fotografija3,
     },
+    {
+      original: bubreg.fotografija4,
+      thumbnail: bubreg.fotografija4,
+    },
   ];
 
   return (
