@@ -31,7 +31,7 @@ const ModalCekeri = ({ addedToCart, addToCart, ceker, showModal, onClose }) => {
     <Modal
       show={showModal}
       onHide={onClose}
-      size="xl"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >

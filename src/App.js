@@ -15,6 +15,7 @@ import { CartProvider } from './CartContext';
 import CartBadge from './CartBadge';
 import About from './About';
 import { Col, Container, Row } from 'react-bootstrap';
+import Faq from './Faq';
 
 
 function App(props) {
@@ -34,6 +35,7 @@ function App(props) {
         <Route path='bubrezi' element={<Bubrezi />} />
         <Route path='cart' element={<Cart />} />
         <Route path='about' element={<About />} />
+        <Route path='faq' element={<Faq />} />
       </Route>
       
     )

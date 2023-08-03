@@ -31,8 +31,10 @@ export default function Footer() {
         </Link>
         </li>
         <li className='pt-2'>
-         
-          </li>
+         <Link className="py-2 text-decoration-none text-dark" to="/faq">
+          FAQ
+         </Link>
+        </li>
       </ul>
     </Col>
     <Col md={4} className="text-md-left mt-5">

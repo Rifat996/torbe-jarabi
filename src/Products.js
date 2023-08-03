@@ -77,7 +77,7 @@ export default function Products() {
 </div> */}
 
 <Container fluid>
-  <Row className="justify-content-center">
+  <Row className="justify-content-center card-cover">
     <Col className="pt-3 text-center overflow-hidden " xs={12} md={12} lg={12}>
       <h2>PROIZVODI</h2>
     </Col>

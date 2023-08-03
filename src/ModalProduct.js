@@ -36,7 +36,7 @@ const ModalProduct = ({addedToCart, addToCart, product, showModal, onClose }) =>
   ];
 
   return (
-    <Modal show={showModal} onHide={onClose} size="xl"
+    <Modal show={showModal} onHide={onClose} size="lg"
     aria-labelledby="contained-modal-title-vcenter"
     centered>
       <Modal.Header className='modalbg' closeButton>

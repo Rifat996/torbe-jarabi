@@ -181,7 +181,7 @@ export default function Cart() {
                         <Form.Control type="email" placeholder="Unesite vaš email (nije obavezno)" value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
-                        <p style={{ margin: '8px', border: '2px solid #381c3ddf', borderRadius: '5px', padding: '5px', background: '#e4dae9' }}>Plaćanje narudžbe se vrši po isporuci na adresu. Dostava 8 KM.</p>
+                        <p style={{ margin: '8px', border: '2px solid #381c3ddf', borderRadius: '5px', padding: '5px', background: '#e4dae9' }}>Plaćanje narudžbe se vrši po isporuci na adresu. Dostava 7 KM.</p>
 
                         
 

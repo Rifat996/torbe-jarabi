@@ -31,7 +31,7 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
     <Modal
       show={showModal}
       onHide={onClose}
-      size="xl"
+      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -51,9 +51,10 @@ const ModalRuksaci = ({ addedToCart, addToCart, ruksak, showModal, onClose }) =>
           <p>{ruksak.detaljno}</p>
           <p>Materijal: <strong>{ruksak.materijal}</strong></p>
           <p>Dimenzije: <strong>{ruksak.dimenzije}</strong></p>
-
+          
           <h5 className='pt-5'><strong>Cijena: {ruksak.cijena} KM</strong></h5>
-
+          
+          <p>{ruksak.dostupnost}</p>
           <Button
           onClick={() => addToCart(ruksak)}
           size="sm"
