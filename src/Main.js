@@ -88,6 +88,11 @@ export default function Main() {
       <Link to='/products' ><Button className='glow-on-hover btn1'>Izaberi svoju Torbejarabi!</Button></Link>
     </div>
     <Container fluid>
+       <Row className="justify-content-center">
+        <Col className="pt-3 text-center overflow-hidden ">
+          <h3>ISTAKNUTI PROIZVODI</h3>
+        </Col>
+      </Row>
       <Row className="justify-content-center">
       <TransitionGroup className="row justify-content-center">
         {mainProducts.map((product, k) => (

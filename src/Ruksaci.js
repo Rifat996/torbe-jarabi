@@ -8,6 +8,7 @@ import ModalRuksaci from './ModalRuksaci'
 import { CartContext } from './CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 
@@ -19,6 +20,9 @@ export default function Ruksaci() {
   const { addToCart } = useContext(CartContext);
   const [addedToCart, setAddedToCart] = useState([]);
   const [likedBackpacks, setLikedBackpacks] = useState([]);
+  const [open, setOpen] = useState(false);
+
+
 
 
 
@@ -90,6 +94,28 @@ export default function Ruksaci() {
   return (
    <>
    <Container fluid>
+    <Row className="justify-content-center">
+      <Col className="pt-3 text-center overflow-hidden ">
+      <Button
+      variant='dark'
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        Više o ruksacima
+      </Button>
+      <Collapse in={open}>
+        <div className='bg-light p-3 mt-2' id="example-collapse-text">
+        Torbejarabi ruksaci predstavljaju savršen spoj stila i funkcionalnosti. Ove ručno rađene ženske ruksake dizajnirali smo s velikim kapacitetom na umu, pružajući vam sve potrebno za svakodnevne izazove ili povremene izlete. Veliki kapacitet prati volumen koji se prilagođava sadržaju, pa ruksak nikad ne izgleda nabijeno ili pretrpano.
+        Jedna od glavnih karakteristika ovog modela je roll-on dizajn, koji omogućava fleksibilno upravljanje prostorom. Bez obzira trebate li nositi laptop, knjige, odjeću ili drugu opremu, Torbejarabi ruksak može se prilagoditi vašim potrebama.
+        Kako bismo dodatno poboljšali funkcionalnost, uključili smo stražnji džep za sigurno pohranjivanje vaših bitnih predmeta poput novčanika ili telefona. Unutarnji džepovi pružaju dodatnu organizaciju, čuvajući sve na dohvat ruke i spašavajući vas užasa beskrajnog prebiranja po torbi dok tražite ključeve. Tome pomažu i brojni unutarnji džepići sa pregradom.
+        Svaki ruksak je opremljen vodonepropusnom postavom, čime se osigurava da vaši predmeti ostanu suhi bez obzira na vremenske uvjete.
+        Izrađeni u BiH, naši ručno rađeni ruksaci nisu samo torbe - oni su izjava stila, namijenjena ženama koje cijene unikatnost i praktičnost. Torbejarabi ruksak je vaš pouzdan i autentičan pratilac u svakodnevnim avanturama, nudeći vam jedinstvenu kombinaciju stila, funkcionalnosti i trajnosti.
+
+        </div>
+      </Collapse>
+      </Col>
+    </Row>
       <Row className="justify-content-center">
       
       {backpacks.map((ruksak, h) => (

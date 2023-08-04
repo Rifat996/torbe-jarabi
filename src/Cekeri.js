@@ -7,6 +7,7 @@ import ModalCekeri from './ModalCekeri'
 import { CartContext } from './CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 export default function Cekeri() {
@@ -17,6 +18,7 @@ export default function Cekeri() {
     const { addToCart } = useContext(CartContext);
     const [addedToCart, setAddedToCart] = useState([]);
     const [likedCheckers, setLikedCheckers] = useState([]);
+    const [open, setOpen] = useState(false);
 
 
   
@@ -88,6 +90,29 @@ export default function Cekeri() {
   return (
     <>
     <Container fluid>
+    <Row className="justify-content-center">
+      <Col className="pt-3 text-center overflow-hidden ">
+      <Button
+      variant='dark'
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        Više o cekerima
+      </Button>
+      <Collapse in={open}>
+        <div className='bg-light p-3 mt-2' id="example-collapse-text">
+        Uzimajući poznate karakteristike cekera, ali dodajući čvrstoću, kompaktnost i autentični izgled, Torbejarabi modeli stvaraju novu kategoriju unikatnih ceker-torbi. Ovi ručno rađeni modeli su idealni za svakodnevne aktivnosti, nudeći solidan kapacitet i lakoću nošenja.
+        S unutarnjom pregradom i džepovima, naši cekeri osiguravaju laku organizaciju vaših predmeta, dok zatvaranje na dugmiće pruža dodatnu sigurnost za vaše stvari. Bez obzira nosite li knjige, namirnice ili lične stvari, sve će biti uredno složeno i na dohvat ruke.
+        Uz praktičnu svakodnevnu upotrebu, "ceker-torbe" su također idealne za putovanja. Njihova lakoća i fleksibilnost čine ih savršenim saputnikom za istraživanje destinacija, jer možete nositi sve što vam je potrebno tom prilikom. Kada nisu u upotrebi, lako se motaju i pakuju u kofer, zauzimajući minimalno prostora.
+        Njihova kompaktnost i lakoća nošenja čine ih idealnim saputnicima u urbanim avanturama, praktičnim obavezama ili užurbanim šoping turama. Uz Torbejarabi "ceker-torbu" možete ponosno nositi svoju svakodnevicu, s uvjerenjem da ste odabrali torbu koja prati vaš unikatni tempo, a pritom pomaže nositi teret vaših dana.
+        Ručno izrađene u BiH, naše "ceker-torbe" donose ne samo praktičnost, već i autentičan izraz stila. Svaka je izrađena s posebnom pažnjom na detalje, odražavajući ne samo kvalitetu izrade, već i individualnost vlasnice. Bilo da tražite svestrani dodatak svakodnevnom stilu ili autentičan ručno izrađen komad za posebne prilike, naše "ceker-torbe" su pravi izbor koji odražava vašu jedinstvenost i ukus.
+
+
+        </div>
+      </Collapse>
+      </Col>
+    </Row>
       <Row className="justify-content-center">
       {checkers.map((ceker, l) => (
         <Col key={l} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden ">

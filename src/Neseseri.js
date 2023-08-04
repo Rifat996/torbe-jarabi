@@ -7,6 +7,7 @@ import ModalNeseseri from './ModalNeseseri'
 import { CartContext } from './CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 export default function Neseseri() {
@@ -17,6 +18,7 @@ export default function Neseseri() {
   const { addToCart } = useContext(CartContext);
   const [addedToCart, setAddedToCart] = useState([]);
   const [likedNesessers, setLikedNesessers] = useState([]);
+  const [open, setOpen] = useState(false);
 
 
 
@@ -85,6 +87,30 @@ export default function Neseseri() {
   return (
     <>
     <Container fluid>
+    <Row className="justify-content-center">
+      <Col className="pt-3 text-center overflow-hidden ">
+      <Button
+      variant='dark'
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        Više o neseserima
+      </Button>
+      <Collapse in={open}>
+        <div className='bg-light p-3 mt-2' id="example-collapse-text">
+        Torbejarabi neseseri su ručno rađene i jedinstvene torbice koje nude mnogo više od uobičajenih nesesera. Prostrani i naočiti, ovi neseseri su dizajnirani da budu nezamjenjivi saveznik svake žene. Bez obzira koristite li ga za pohranu šminke, higijenskih potrepština, ili kao malu torbicu unutar veće torbe, Torbejarabi neseseri su tu da udovolje svim vašim potrebama.
+        Prije svega, naši neseseri su malo veći od uobičajenih, što omogućuje da se s lakoćom pospreme i nose svi esencijali za njegu žene. Od šminke do proizvoda za njegu kože, ogledala, četke za kosu i svega između, naše torbe imaju i više no dovoljno mjesta za sve neophodne potrepštine.
+        Pravimo ih od istih materijala kao i naše torbe što ih čini nevjerovatno izdržljivim i dugotrajnim. Dizajnirani su da izdrže svakodnevnu upotrebu po peri-deri principu, što ih čini savršenom investicijom ako tražite pouzdan oslonac prilikom putovanja i drugih avantura.
+        Ali možda je najbolja stvar u vezi naših nesesera multi-praktičnost koju nude. Uz kompaktan i lagan dizajn, lako ih je nositi gdje god da krenete.
+        Možete je upariti i sa nekom omiljenom torbom iz naše kolekcije, i u njoj nositi svoje ključne stvari za laku i brzu pretragu. Možete je držati i kući u kupatilu, a savršeno stane i u kofer dok istražujete svijet i putujete. Bilo da je riječ o putovanju, odlasku u teretanu ili jednostavnom obavljanju poslova, naši neseseri služe da olakšaju i uljepšaju svakodnevnicu svake žene.
+
+
+
+        </div>
+      </Collapse>
+      </Col>
+    </Row>
       <Row className="justify-content-center">
       {nesessers.map((neseser, s) => (
         <Col key={s} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden card-cover">

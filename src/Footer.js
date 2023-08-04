@@ -44,7 +44,7 @@ export default function Footer() {
           Email: torbejarabi@gmail.com
       </li>
       <li className='pt-2'>
-          Tel: 38762069303
+          Tel: 38762396510
       </li>
 
     </ul>

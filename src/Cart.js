@@ -195,7 +195,7 @@ export default function Cart() {
                             }} style={{ margin:"10px", borderRadius: '0', borderColor: '#d9d9d9' }} variant="primary" type="submit">
                             Naruči preko WhatsApp-a
                         </Button>
-                        <p style={{ margin: '8px', border: '2px solid #381c3ddf', borderRadius: '5px', padding: '5px', background: '#25D366', color: 'white' }}>Ukoliko naručujete preko WhatsApp-a potrebno je da broj +38762069303 sačuvate kao kontakt u Vašem telefonu prije same narudžbe.</p>
+                        <p style={{ margin: '8px', border: '2px solid #381c3ddf', borderRadius: '5px', padding: '5px', background: '#25D366', color: 'white' }}>Ukoliko naručujete preko WhatsApp-a potrebno je da broj +38762396510 sačuvate kao kontakt u Vašem telefonu prije same narudžbe.</p>
                         
                     </Form>
                     </Col>

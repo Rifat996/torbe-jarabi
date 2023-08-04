@@ -7,6 +7,7 @@ import ModalTorbe from './ModalTorbe'
 import { CartContext } from './CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 export default function Torbe() {
@@ -17,6 +18,7 @@ export default function Torbe() {
     const { addToCart } = useContext(CartContext);
     const [addedToCart, setAddedToCart] = useState([]);
     const [likedTorbas, setLikedTorbas] = useState([]);
+    const [open, setOpen] = useState(false);
 
   
 
@@ -88,6 +90,30 @@ export default function Torbe() {
   return (
     <>
       <Container fluid>
+      <Row className="justify-content-center">
+      <Col className="pt-3 text-center overflow-hidden ">
+      <Button
+      variant='dark'
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        Više o oversized torbama
+      </Button>
+      <Collapse in={open}>
+        <div className='bg-light p-3 mt-2' id="example-collapse-text">
+        Torbejarabi oversized torbe su velike ženske torbe, vješto dizajnirane da se prilagode dinamičnom životu moderne žene. Ručno rađene oversized torbe nisu samo torbe – već jedna proslava prostora, stila i praktičnosti. 
+        Ove velike unikatne torbe su namijenjene ženi koja cijeni jedinstvenost i voli da iznese svoj autentičan stil. Izrađene su s posebnim naglaskom na estetiku, ali bez žrtvovanja funkcionalnosti.
+        Svaki centimetar oversized torbi šiven je s velikom preciznošću da vam omogući da ponesete svoj svijet sa sobom. Torbe su savršene za žene koje žude za savršenom ravnotežom između stila i praktičnih potreba - od svakodnevnih osnovnih stvari, radnih predmeta, pa sve do neočekivanih dodataka.
+        Ljepota naših oversized torbi leži u njihovoj inherentnoj svestranosti. Njihova proširena veličina pruža vam udobnost mobilne radne stanice, komfora rezervnog ormara ili sigurnosti dobro opskrbljene ostave, sve to dok nosite autentičan modni izričaj.
+        Ali to nije cijela priča. Svaka oversized torba je postavljena i pregrađena, ima nekoliko unutarnjih džepova i zatvara se na rajfešlus, osiguravajući da su vam stvari uvijek lako dostupne i lijepo posložene.  Recite zbogom nervoznom pretraživanju i dobrodošli miru i organiziranosti.
+        U suštini, naše oversized torbe su više od modnog dodatka - one su oslobađajući izbor načina života. Savršena simbioza stila i praktičnosti, koja prkosi standardnim modnim normama, a istovremeno pruža jednostavnost i praktičnost koju očekujete od svakodnevne torbe. Živite uveliko sa stilom.
+
+
+        </div>
+      </Collapse>
+      </Col>
+    </Row>
       <Row className="justify-content-center">
       {bags.map((torba, a) => (
         <Col key={a} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden">

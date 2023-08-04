@@ -8,6 +8,7 @@ import ModalBubrezi from './ModalBubrezi'
 import { CartContext } from './CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Collapse from 'react-bootstrap/Collapse';
 
 
 
@@ -19,6 +20,8 @@ export default function Bubrezi() {
     const { addToCart } = useContext(CartContext);
     const [addedToCart, setAddedToCart] = useState([]);
     const [likedBubrezi, setLikedBubrezi] = useState([]);
+    const [open, setOpen] = useState(false);
+
 
 
   
@@ -89,6 +92,29 @@ export default function Bubrezi() {
   return (
     <>
     <Container fluid>
+    <Row className="justify-content-center">
+      <Col className="pt-3 text-center overflow-hidden ">
+      <Button
+      variant='dark'
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        Više o bubreg torbicama
+      </Button>
+      <Collapse in={open}>
+        <div className='bg-light p-3 mt-2' id="example-collapse-text">
+        Torbejarabi "Bubreg" model odnosi se na torbice oko struka ili torbice preko ramena. Ove male ručno rađene ženske torbe za svaki dan i svaku priliku, stvorene su da budu vaš pouzdan stilski partner u svakodnevnici.
+        Praktičan dizajn sa postavom, prednjim i stražnjim malim džepićem omogućava vam da sve svoje esencijalne stvari držite blizu, sigurnim i dobro organiziranim. Ovaj model omogućuje sve ključne stvari na dohvat ruke. Uvijek ćete znati gdje su vam mobitel, novčanik i ključevi, što vas oslobađa nošenja većih torbi kada za tim nema potrebe i beskrajnog prebiranja po njima tražeći nekoliko ključnih i svakodnevnih esencijala.
+Ovaj model je pouzdan izbor za one koji žele unikatne ženske torbe, s jedinstvenim i autentičnim izgledom. Naši modeli ovih torbica omogućuju svim autentičnim i stilski osobenim ljudima da nose ove specifične i popularne modele torbi čiju praktičnost cijene, ali ne i prosječan izgled ovih modela na tržištu. 
+Izrađene od visokokvalitetnih materijala, nude podesive opcije nošenja kao torbice oko struka ili torbice preko ramena, kako već vama paše. 
+Ove torbice su idealne za putovanja, izlete i društveni život, iako su jako praktične za bilo koju priliku u kojoj želite stilski kombinirati, a pritom vam ne treba mnogo prostora osim za ključne stvari poput mobitela, ključeva, naočala i ostalih sitnica koje život znače. Stane dosta manjih predmeta, jer su naše torbice oko struka u prosjeku šire i većeg volumena od prosječnih torbica ovog tipa.
+Uz Torbejarabi "Bubreg" model, svoje stvari nosite na način koji je ujedno praktičan i izrazito stilski. Lagan, a unikatan spoj estetike i funkcionalnosti.
+
+        </div>
+      </Collapse>
+      </Col>
+    </Row>
       <Row className="justify-content-center">
       {sideBags.map((bubreg, m) => (
         <Col key={m} xs={6} md={5} lg={2} className="pt-3 text-center overflow-hidden">

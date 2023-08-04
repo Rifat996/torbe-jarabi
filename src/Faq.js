@@ -15,7 +15,7 @@ export default function Faq() {
                 <p>Zatim vaše narudžbe šaljemo brzom poštom, brzo i ekspresno unutar Bosne i Hercegovine, a nešto duže i skuplje u inostranstvo.</p>
                 <p>Vizija ovog brenda je da zajedno sa vama kreiramo i širimo našu domaću, bosansku modu.</p>
                 <h2 className='pt-3'>KAKO SE PLAĆA</h2>
-                <p>Sve narudžbe plaćaju se <strong>direktno kešom prilikom pouzeća.</strong> Trenutačno nismo u mogućnosti prihvatiti karitčno ili PayPal plaćanje jer smo registrovani kao obrt i nismo u sistemu PDV-a.</p>
+                <p>Sve narudžbe plaćaju se <strong>direktno gotovinom prilikom pouzeća.</strong> Trenutačno nismo u mogućnosti prihvatiti karitčno ili PayPal plaćanje jer smo registrovani kao obrt i nismo u sistemu PDV-a.</p>
                 <p>Dostavljamo u roku par radnih dana na svim lokacijama unutar Bosne i Hercegovine, a cijena <strong>poštarine/dostave je 7KM.</strong> </p>
                 <p>Narudžbe za inostranstvo traju duže i koštaju više u zavisnosti od zemlje o kojoj se radi. Rok prijema je između 7 i 14 dana, a poštarina varira od 15 do 30€. Za ovu vrstu narudžbe se javite direktno putem poruka.</p>
                 <p>Za sve narudžbe <strong>preko 100KM</strong> unutar BiH, dostava je <strong>besplatna.</strong></p>
@@ -29,7 +29,7 @@ export default function Faq() {
                 <p>Moguće je recimo predložiti drugu boju ručkica, drugu boju roll-on dijela kod ruksaka, moguće je predložiti vlastiti dizajn/print na određene dezene koji vam se sviđaju itd. Sa takvim zahtjevima, svakako se javite direktno putem društvenih mreža ili WHATS Up platforme kako bi provjerili mogućnosti i dostupnost materijala. </p>
                 <h2 className='pt-3'>KOJE SU GARANCIJE NA KVALITET I MOGUĆNOST POVRATA?</h2>
                 <p>Torbejarabi je korporativno i društveno odgovorno preduzeće, a definitivno stojimo iza naših riječa i garancije kvaliteta. Ukoliko iz <strong>bilo kojeg razloga niste zadovoljni</strong> dobivenim proizvodom, <strong>vraćamo vam novac</strong> bez ikakvih posebnih procedura ili obrazloženja.</p>
-                <p>Ne dešava se skoro nikad, ali ko radi taj i griješi. Ukoliko ste dobili oštećenu torbu ili ukoliko dođe do oštećenja u roku od 6 mjeseci korištenja, <strong>možete nam poslati torbu na reparaciju</strong>, a mi ćemo snositi troškove dostave u oba smjera.</p>
+                <p>Ne dešava se skoro nikad, ali ko radi taj i griješi. Ukoliko ste dobili oštećenu torbu ili ukoliko dođe do oštećenja u roku od 2 mjeseca korištenja, <strong>možete nam poslati torbu na reparaciju</strong>, a mi ćemo snositi troškove dostave u oba smjera.</p>
                 <h2 className='pt-3'>GDJE MOGU NAĆI TORBEJARABI?</h2>
                 <p>Naša krojačka radnja i salon nalazi se u <strong>Zenici</strong>, na adresi <strong>Armije BiH 26</strong> (naselje Mokušnice).</p>
                 <p>Naše torbe moguće je naći i u Claire Noele studiu u Mostaru na adresi Kralja Tomislava 49.</p>
